@@ -1,0 +1,189 @@
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>vertexcover - Software Consulting Studio</title>
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="Homepage">
+            </a>
+        </div> <!-- end header-logo -->
+
+        <nav class="header-nav">
+
+            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+
+            <div class="header-nav__content">
+                <h3> VertexCover </h3>
+
+                <ul class="header-nav__list">
+                    <li><a href="/index.html#home" title="home">Home</a></li>
+                    <li><a  href="/index.html#about" title="about">About</a></li>
+                    <li><a  href="/index.html#values" title="about">Vaues</a></li>
+                    <li><a href="/open-source.html" title="open source">Open Source</a></li>
+                    <li><a href="/index.html#contact" title="contact">Contact</a></li>
+                </ul>
+
+                <ul class="header-nav__social">
+                    <li>
+                        <a href="#0"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+
+            </div> <!-- end header-nav__content -->
+
+        </nav> <!-- end header-nav -->
+
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-icon"></span>
+        </a>
+
+    </header> <!-- end s-header -->
+    <div class="project-container">
+        <section class="projects">
+            <div class="row section-header">
+                <div class="col-full">
+                    <h2 class="display-2">Recent Projects</h2>
+                </div>
+            </div> <!-- end section-header -->
+            <div class="row">
+                <div class="col-full">
+                  <dl>
+                    <dt>
+                      Fraud Detection System for a Payment Company
+                    </dt>
+                    <dd>
+                      We are currently leading the rearchitecture of the fraud detection engine for one of the
+                      biggest payment company in the world. We are working remotely with people from that company and
+                      are currently rewriting major components. Some of the major challenges are
+                      <ul>
+                        <li>
+                          Design a  plugin based risk engine, along with a very simple DSL that allows non technical risk analysts to create
+                          rules on the fly from a UI
+                        </li>
+                        <li>
+                          Design a plugin based service responsible for collecting different kind of data needed for fraud analysis. The plugins must
+                          run in parallel and should be resillient to some brittle services.
+                        </li>
+                        <li>
+                          Design a new modern machine learning fraud detection and anomaly detection engine.
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+
+                  <dl>
+                      <dt>
+                          Automated SMS Tagging, and Bank Statement Analysis
+                      </dt>
+                      <dd>
+                        We built this product for a well funded fintech startup to help them better analyse credit worthiness of their customers.
+                        There were three parts to this project
+                        <ul>
+                          <li>
+                              We first built an android SDK that was responsible for collecting user's non personal sms and sending them back to a configurable
+                              backend. The SDK was extremely configurable, allowing the app to decide at what frequency and what efficiency level they wanted to collect data at.
+                              We, also experimented with collecting notifications, user app usage and browser history.
+                          </li>
+                          <li>
+                            We then implemented unsupervised clustering on huge corpus of SMS data and converted them into clusters such that SMS in each
+                            cluster was similar in terms of its domain. We also built a custom UI that then allowed manually tagging these clusters
+                            instead of manually going over this huge corpus of SMS individually. This dramatically reduced the time to construct a training
+                            set for our supervised ML algorithm to automatically tag incoming SMS.
+                          </li>
+                          <li>
+                            Implemented a new modified hierarchical Naive Bayes Algorithm to automatically tag incoming SMS. The system was designed with
+                            great instrumentation support as well as ability to automatically update the model everyday with new incoming data.
+                          </li>
+                          <li>
+                            Built a parser to create bank statement for the user from all the SMS tagged by our ML system to be related to banking
+                            transaction.
+                          </li>
+                        </ul>
+                      </dd>
+                  </dl>
+                  <dl>
+                      <dt>
+                        Monero Mining in Browser
+                      </dt>
+                      <dd>
+                        This was more like an experiment to understand whether crypto mining can be a good alternative to advertisements or adblocker
+                        We built a js based monero mining , an android mining SDK as well as proxy for the mining pool that can interface with our browser based miner. We
+                        ran our JS based miner on couple of websites with millions of views daily
+                        <ul>
+                            <li>
+                                <strong>JS Based Monero Miner</strong><br/>
+                                This involved cross compiling one of the C++ based monero miner into webassembly and then writing a JS wrapper
+                                around the actual minining implementation. The wrapper provided a simple and elegant api to interact with the webassembly
+                                miner and was responsible to communicate with the mining pool over websockets
+                            </li>
+                            <li>
+                                <strong>Monero Mining Pool Proxy</strong><br/>
+                                This involved building a mining proxy that interacted with our js mining library over websockets on one side and with mininig pools on other.
+                                This was needed because most of the mining pool cannot deal with such large number of low powered miners. The proxy was also responsible
+                                to divide the POW challenge posted by the mining pool into further smaller challenges for each of the js miner it was connected to.
+                            </li>
+
+                            <li>
+                                <strong>Monero Miner for Android</strong><br/>
+                                Build an Android SDK that allowed android apps to perform crypto mining in the background. This again involved
+                                porting a C++ miner to run as native code and a Java wrapper around the actual mining implementation. The android mining
+                                SDK was extremely configurable and allowed app developers to decide how frequently or efficiently they wanted to run mining
+                                in the background
+                            </li>
+                      </dd>
+                  </dl>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
