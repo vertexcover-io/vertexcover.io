@@ -1,7 +1,8 @@
 {
   "name": "vertexcover.io",
-  "alias": [
-    "vertexcover.now.sh"
-  ],
-  "version": "0.0.1"
+  "alias": ["vertexcover.now.sh"],
+  "version": 2,
+  "public": "src/",
+  "cleanUrls": true,
+  "directoryListing": false
 }
